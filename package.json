@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repo": "git@github.com:codingthrone/coding-throne-bot.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
