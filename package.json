@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
-  "repo": "git@github.com:codingthrone/coding-throne-bot.git",
+  "repo": "https://github.com/codingthrone/coding-throne-bot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "release": "release-it"
@@ -12,8 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1"
-  },
-  "devDependencies": {
-    "release-it": "^14.4.0"
   }
 }
