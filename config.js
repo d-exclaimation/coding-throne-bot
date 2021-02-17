@@ -5,7 +5,16 @@ function configGenerator(params) {
   const {prefix} = params;
   
   return {
-    prefix,
+    bot: {
+      prefix
+    },
+    url: {
+      repo: "https://github.com/codingthrone/coding-throne-bot"
+    },
+    messages: {
+      notACommand: (wrongCommand) => `\`${prefix}${wrongCommand}\` is not a command.\nType \`${prefix}help\` for more information my commands. :p`,
+      contribute: (repo) => `Our open-source code is hosted here:\n${repo}\n\nMost PRs will be accepted. So have fun!`
+    }
   };
 }
 
