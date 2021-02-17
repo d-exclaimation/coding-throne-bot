@@ -7,12 +7,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "env": "node ./scripts/createEnv.js",
-    "start": "node ."
+    "start": "node .",
+    "dev":"nodemon ."
   },
   "author": "Mina Zaky",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
