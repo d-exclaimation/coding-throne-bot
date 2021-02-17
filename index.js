@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 require("dotenv").config({path: `${__dirname}/.env`});
 const fs = require('fs');
 const client = new Discord.Client();
-const prefix = '`';
-
+const config = {prefix} =  require("./config");
 
 client.commands = new Discord.Collection();
 
