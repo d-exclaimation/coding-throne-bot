@@ -6,7 +6,7 @@
   "repo": "https://github.com/codingthrone/coding-throne-bot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "release": "release-it"
+    "start": "node "
   },
   "author": "Mina Zaky",
   "license": "ISC",
