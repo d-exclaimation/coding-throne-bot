@@ -1,11 +1,13 @@
 {
   "name": "@codingthrone/codingthrone-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "repo": "https://github.com/codingthrone/coding-throne-bot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "env": "node ./scripts/createEnv.js"
+    "env": "node ./scripts/createEnv.js",
+    "start": "node "
   },
   "author": "Mina Zaky",
   "license": "ISC",
