@@ -6,11 +6,13 @@
   "repo": "https://github.com/codingthrone/coding-throne-bot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "env": "node ./scripts/createEnv.js",
     "start": "node "
   },
   "author": "Mina Zaky",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
   }
 }
