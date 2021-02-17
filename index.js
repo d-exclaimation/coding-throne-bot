@@ -28,11 +28,11 @@ client.on('message', message =>{
 
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    } else if (command == 'invite'){
-        client.commands.get('invite').execute(message ,args);
-    } else if (command == 'mute'){
-        client.commands.get('mute').execute(message, args);
+    } else if (command === 'invite'){
+        client.commands.get('invite').execute(message, args);
+    } else if (command === 'kick'){
+        client.commands.get('kick').execute(message, args);
     }
 });
 
-client.login('TOKEN');
+client.login('ODAxOTIzMTkwOTMwNDA3NDc0.YAnvKw.l5uSfX3g1LCsFniSpeqvf839oEc');
