@@ -29,7 +29,10 @@ client.on('message', message =>{
         client.commands.get('invite').execute(message, args);
     } else if (command === 'kick'){
         client.commands.get('kick').execute(message, args);
+    } else if (command === "test"){
+        client.commands.get("test").execute(message, args);
     }
+    
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
