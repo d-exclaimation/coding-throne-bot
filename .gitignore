@@ -4,4 +4,4 @@ build/
 .idea/
 .vscode/
 .prettierrc.json
-.prettierignore
+.prettierignor
