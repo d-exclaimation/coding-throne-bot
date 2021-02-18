@@ -3,5 +3,5 @@ const listCommands = require("./listCommands");
 
 module.exports = {
   propagate,
-  listCommands
-}
+  listCommands,
+};
