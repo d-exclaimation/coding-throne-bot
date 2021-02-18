@@ -33,7 +33,6 @@ client.on("message", (message) => {
 
   try {
     const _command = client.commands.get(command);
-    if (!_command) return notACommandHandler(message, args, command);
     _command.execute(message, args);
   } catch (err) {
     console.log(err);
