@@ -7,9 +7,7 @@
 
 import { Discord, On, ArgsOf, Client } from "@typeit/discord"
 import { commandCollection } from "./utils"
-import { prefix, messages, url } from "../config"
-
-const { notACommand } = messages
+import { prefix } from "../config"
 
 @Discord()
 abstract class AppDiscord {
@@ -25,11 +23,8 @@ abstract class AppDiscord {
 
         try {
             const botCommand = commandCollection.get(command)
-            if (!botCommand) {
-                await message.reply(notACommand(command))
+            if (!botCommand)
                 return
-            }
-
             if (botCommand.isGuildOnly && message.channel.type === "dm") return
 
             botCommand.execute(message, args)
