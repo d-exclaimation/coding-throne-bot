@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  bot:
+    container_name: 'Bot'
+    build: ./
+    # tty: true
+    # # stdin_open: true
+    restart: always
