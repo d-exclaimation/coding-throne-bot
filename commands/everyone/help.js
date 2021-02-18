@@ -12,14 +12,21 @@ module.exports = {
   execute: (message, args) => {
     const byCategory = args[0] || "general";
     const commands = listCommands();
-    const commandsEntries = Array.from(commands, ([k,v]) => ({name: k,...v}))
-    
+    const commandsEntries = Array.from(commands, ([k, v]) => ({
+      name: k,
+      ...v,
+    }));
+
     const embed = new discord.MessageEmbed();
     embed.setTitle("Command-List");
-    embed.setFooter(`Type ${config.prefix}help <command> for more info on a command.`)
+    embed.setFooter(
+      `Type ${config.prefix}help <command> for more info on a command.`
+    );
     embed.setTimestamp();
-    embed.setColor('#0099ff');
-    commandsEntries.forEach((e) => embed.addField(`> ${e.name}`, `\`${e.description}\``))
+    embed.setColor("#0099ff");
+    commandsEntries.forEach((e) =>
+      embed.addField(`> ${e.name}`, `\`${e.description}\``)
+    );
 
     message.channel.send(embed);
 
@@ -30,15 +37,15 @@ module.exports = {
     function filterByCategory() {
       const commandsWithCategory = commandsEntries.filter((e) => e.category);
       const uniqueCategories = commandsWithCategory.map((e) => e.category);
-      let categories = new Map() 
+      let categories = new Map();
 
       uniqueCategories.forEach((e) => categories.set(e, new Map()));
-      
+
       commandsWithCategory.forEach((e) => {
-        categories.get(e.category).set(e); 
-      })
-      
-      return categories
+        categories.get(e.category).set(e);
+      });
+
+      return categories;
     }
-  }
-}
+  },
+};
