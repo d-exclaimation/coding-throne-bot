@@ -1,22 +1,30 @@
 {
-  "name": "@codingthrone/codingthrone-bot",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "repo": "https://github.com/codingthrone/coding-throne-bot",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "env": "node ./scripts/createEnv.js",
-    "start": "node .",
-    "dev": "nodemon ."
-  },
-  "author": "Mina Zaky",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+    "name": "@codingthrone/codingthrone-bot",
+    "version": "1.0.1",
+    "description": "",
+    "main": "index.js",
+    "repo": "https://github.com/d-exclaimation/coding-throne-bot",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 0",
+        "env": "node ./scripts/createEnv.js",
+        "start": "node .",
+        "ts:start": "ts-node src/index.ts",
+        "dev": "nodemon .",
+        "fix": "npx prettier --write ."
+    },
+    "author": "Mina Zaky",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^12.5.1",
+        "dotenv": "^8.2.0"
+    },
+    "devDependencies": {
+        "@typeit/discord": "^4.0.9",
+        "@types/node": "^14.14.28",
+        "nodemon": "^2.0.7",
+        "prettier": "2.2.1",
+        "ts-node": "^9.1.1",
+        "tslib": "^2.1.0",
+        "typescript": "^4.1.5"
+    }
 }

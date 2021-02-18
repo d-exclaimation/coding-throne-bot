@@ -1,7 +1,7 @@
 module.exports = {
-  name: "test",
-  description: "desc",
-  execute: (message, args) => {
-    message.channel.send("test");
-  },
-};
+    name: "test",
+    description: "desc",
+    execute: (message, args) => {
+        message.channel.send("test")
+    },
+}

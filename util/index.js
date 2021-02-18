@@ -1,7 +1,7 @@
-const propagate = require("./propagate");
-const listCommands = require("./listCommands");
+const propagate = require("./propagate")
+const listCommands = require("./listCommands")
 
 module.exports = {
-  propagate,
-  listCommands,
-};
+    propagate,
+    listCommands,
+}
