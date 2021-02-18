@@ -1,7 +1,9 @@
 node_modules/
 .env
 build/
+dist/
 .idea/
 .vscode/
 .prettierrc.json
 .prettierignor
+nodemon.json

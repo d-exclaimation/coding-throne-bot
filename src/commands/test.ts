@@ -3,16 +3,19 @@
 //  coding-throne-bot
 //
 //  Created by d-exclaimation on 11:23 PM.
-//  Copyright © 2021 d-exclaimation. All rights reserved.
 //
 
 import { Message } from "discord.js"
+import { BotCommand } from "../interfaces/command"
 
-export const name = "test";
-export const description = "this is testing purposes";
-
-export function execute(message: Message, args: string[]) {
-    (async () => {
-        await  message.reply("testing works");
-    })()
+const test: BotCommand = {
+    name: "test",
+    description: "this is testing purposes",
+    execute(message: Message, args: string[]) {
+        ;(async () => {
+            await message.reply("testing works")
+        })()
+    },
 }
+
+export const { name, description, execute } = test
