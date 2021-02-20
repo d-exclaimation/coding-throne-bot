@@ -5,9 +5,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "tsc --watch",
-        "ts:start": "ts-node ./src/main/index.ts",
+        "ts:start": "ts-node ./src/index.ts",
         "prettier": "npx prettier --write .",
-        "watch-and-run": "ts-node-dev --respawn -- src/main/index.ts"
+        "watch-and-run": "ts-node-dev --respawn -- src/index.ts"
     },
     "keywords": [],
     "author": "",
