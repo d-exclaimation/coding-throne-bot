@@ -1,5 +1,5 @@
-import ConfigComponent from '../component'
-import Config from '../config'
+import ConfigComponent from '../Component'
+import Config from '../Config'
 import GithubComponent from './url/github'
 import BlogComponent from './url/blog'
 

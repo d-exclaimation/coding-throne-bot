@@ -1,5 +1,5 @@
-import Config from '../config'
-import ConfigComponent from '../component'
+import Config from '../Config'
+import ConfigComponent from '../Component'
 import prefix from './bot/prefix'
 
 const name = 'bot'

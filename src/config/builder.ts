@@ -1,8 +1,8 @@
 /**
  * author: rbrtbrnschn
  */
-import ConfigComponent from './component'
-import Config from './config'
+import ConfigComponent from './Component'
+import Config from './Config'
 
 export default class ConfigBuilder {
     config: Config

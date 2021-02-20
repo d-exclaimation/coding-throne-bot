@@ -1,4 +1,4 @@
-import ConfigComponent from '../../component'
+import ConfigComponent from '../../Component'
 import PrefixHandler from './prefix/handler'
 const name = 'prefix'
 
