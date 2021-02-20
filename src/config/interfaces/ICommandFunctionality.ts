@@ -15,5 +15,5 @@
     - ConfigComponent
     - etc.
 */
-type ConfigComponentFunctionalityInterface = any
-export default ConfigComponentFunctionalityInterface
+type IComponentFunctionality = any
+export default IComponentFunctionality
