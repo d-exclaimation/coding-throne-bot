@@ -1,7 +1,7 @@
-import CommandExecute from "./commandExecuteInterface";
-import CommandInfoInterface from "./commandInfoInterface";
+import CommandExecute from './commandExecuteInterface'
+import CommandInfoInterface from './commandInfoInterface'
 export default interface CommandInterface {
-    name: string,
+    name: string
     info: CommandInfoInterface
-    execute: CommandExecute,
+    execute: CommandExecute
 }
