@@ -8,17 +8,17 @@ async function make() {
         classes: [
             path.join(__dirname, 'eventHandlers', '*.ts'),
             path.join(__dirname, 'eventHandlers', '*.js'),
-            path.join(__dirname, 'commands', "*", '*.ts'),
-            path.join(__dirname, 'commands', "*", '*.ts'),
-            path.join(__dirname, 'commands', "*", '*.js'),
-            path.join(__dirname, 'commands', "*", '*.js'),
+            path.join(__dirname, 'commands', '*', '*.ts'),
+            path.join(__dirname, 'commands', '*', '*.ts'),
+            path.join(__dirname, 'commands', '*', '*.js'),
+            path.join(__dirname, 'commands', '*', '*.js'),
         ],
         silent: false,
         variablesChar: ':',
     })
 
     await client.login(process.env.DISCORD_BOT_TOKEN as string)
-    return client;
+    return client
 }
 
-export default make();
+export default make()

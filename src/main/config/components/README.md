@@ -1,7 +1,8 @@
-<!-- 
+<!--
     author: rbrtbrnschn
     description: how to use and extend the config
 -->
+
 # Config Components 101
 
 ## What are components?

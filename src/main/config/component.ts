@@ -4,10 +4,10 @@
 import ConfigComponentFunctionalityInterface from './componentFunctionalityInterface'
 import ConfigComponentInterface from './componentInterface'
 
-type Name = String | undefined;
+type Name = String | undefined
 export default class ConfigComponent implements ConfigComponentInterface {
-    functionality: ConfigComponentFunctionalityInterface;
-    name: Name;
+    functionality: ConfigComponentFunctionalityInterface
+    name: Name
 
     withName(_name: Name) {
         this.name = _name
@@ -22,7 +22,6 @@ export default class ConfigComponent implements ConfigComponentInterface {
         const { name, functionality } = subComponent
         this.withName(name)
         this.withFunctionality(functionality)
-
 
         return this
     }

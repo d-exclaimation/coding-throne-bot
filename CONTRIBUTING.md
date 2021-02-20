@@ -8,4 +8,4 @@ Change into the directory of the cloned repo on your machine and install depende
 
 # Requirements
 
-- Make sure you have prettier installed in your editor or IDE of choice
+-   Make sure you have prettier installed in your editor or IDE of choice
