@@ -17,7 +17,7 @@ async function make() {
         variablesChar: ':',
     })
 
-    await client.login(process.env.DISCORD_BOT_TOKEN)
+    await client.login(process.env.DISCORD_BOT_TOKEN as string)
     return client;
 }
 
