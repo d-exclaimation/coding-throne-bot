@@ -15,6 +15,7 @@
     "dependencies": {
         "@typeit/discord": "^4.0.9",
         "@types/node": "^14.14.30",
+        "discord-akairo": "github:discord-akairo/discord-akairo",
         "dotenv": "^8.2.0",
         "prettier": "^2.2.1",
         "runtypes": "^5.0.1",

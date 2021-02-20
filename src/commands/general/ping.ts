@@ -1,25 +1,15 @@
-import {
-    Command,
-    CommandMessage,
-    Discord,
-    Description,
-} from '@typeit/discord'
-import config from '../../config'
-import CommandBuilder from '../CommandBuilder'
+import { Command } from 'discord-akairo';
+import { Message} from "discord.js";
+class PingCommand extends Command {
+    constructor() {
+        super('ping', {
+           aliases: ['ping'] 
+        });
+    }
 
-const pingCommand = new CommandBuilder()
-    .withName('ping')
-    .hasInfo({ prefix: config.bot.prefix, description: 'Ping command' })
-    .withFunctionality((message: CommandMessage) => {
-        console.log('Executed command:', pingCommand.name)
-        message.reply('🏓 Pong...')
-    }).build()
-
-@Discord(pingCommand.info.prefix)
-export default abstract class PingCommand {
-    @Command(pingCommand.name)
-    @Description(pingCommand.info.description || 'none')
-    private ping(message: CommandMessage) {
-        pingCommand.execute(message)
+    exec(message: Message) {
+        return message.reply("🏓 Pong...");
     }
 }
+
+module.exports = PingCommand;
