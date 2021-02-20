@@ -1,7 +1,7 @@
 /**
  * author: rbrtbrnschn
  */
-import ConfigComponentFunctionalityInterface from './componentFunctionalityInterface'
+import ConfigComponentFunctionalityInterface from './ICommandFunctionality'
 
 export default interface ConfigComponentInterface {
     name: String | undefined

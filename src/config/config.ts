@@ -2,7 +2,7 @@
  * author: rbrtbrnschn
  */
 import ConfigComponent from './component'
-import ConfigInterface from './configInterface'
+import ConfigInterface from './interfaces/IConfig'
 import * as fs from 'fs'
 import * as path from 'path'
 

@@ -1,8 +1,8 @@
 /**
  * author: rbrtbrnschn
  */
-import ConfigComponentFunctionalityInterface from './componentFunctionalityInterface'
-import ConfigComponentInterface from './componentInterface'
+import ConfigComponentFunctionalityInterface from './interfaces/ICommandFunctionality'
+import ConfigComponentInterface from './interfaces/IComponent'
 
 type Name = String | undefined
 export default class ConfigComponent implements ConfigComponentInterface {
