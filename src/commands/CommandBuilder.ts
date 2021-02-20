@@ -1,9 +1,8 @@
 import Command from './Command'
-import CommandInterface from './interfaces/ICommand';
 import ICommandExecute from './interfaces/ICommandExecute'
 import ICommandInfo from './interfaces/ICommandInfo'
 
-export class CommandBuilder {
+export default class CommandBuilder {
     name: string | undefined;
     info: ICommandInfo | undefined;
     execute: ICommandExecute | undefined;

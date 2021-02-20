@@ -8,6 +8,7 @@ export default abstract class OnMessage {
         client: Client,
         guardPayload: any
     ) {
-        console.log(`Message received: ${message.content}`)
+        if(message.author.bot) return;
+        console.log(`[Message received] ${message.author.username} says: "${message.content}"`)
     }
 }

@@ -1,14 +1,11 @@
 import {
-    Client,
-    On,
     Command,
     CommandMessage,
-    CommandNotFound,
     Discord,
     Description,
 } from '@typeit/discord'
 import config from '../../config'
-import { CommandBuilder } from '../CommandBuilder'
+import CommandBuilder from '../CommandBuilder'
 
 const pingCommand = new CommandBuilder()
     .withName('ping')

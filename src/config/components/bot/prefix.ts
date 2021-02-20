@@ -1,12 +1,11 @@
 import ConfigComponent from '../../Component'
 import PrefixHandler from './prefix/handler'
-const name = 'prefix'
+import { Record, String, Number, Static } from 'runtypes'
 
-function functionality() {
-    const { NODE_ENV } = process.env
-    return PrefixHandler.prefixFor(NODE_ENV)
-}
+const name = 'prefix';
+
+type Prefix = Static<typeof String>;
 
 export default new ConfigComponent()
     .withName(name)
-    .withFunctionality(functionality())
+    .withFunctionality(PrefixHandler.prefixFor(process.env.NODE_ENV));
