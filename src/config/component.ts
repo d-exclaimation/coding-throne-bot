@@ -2,10 +2,10 @@
  * author: rbrtbrnschn
  */
 import ConfigComponentFunctionalityInterface from './interfaces/ICommandFunctionality'
-import ConfigComponentInterface from './interfaces/IComponent'
+import IComponent from './interfaces/IComponent'
 
 type Name = String | undefined
-export default class ConfigComponent implements ConfigComponentInterface {
+export default class ConfigComponent implements IComponent {
     functionality: ConfigComponentFunctionalityInterface
     name: Name
 

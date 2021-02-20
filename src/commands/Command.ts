@@ -1,15 +1,15 @@
-import CommandInterface from './commandInterface'
-import CommandInfoInterface from './commandInfoInterface'
-import CommandExecuteInterface from './commandExecuteInterface'
+import CommandInterface from './interfaces/ICommand'
+import ICommandInfo from './interfaces/ICommandInfo'
+import CommandExecuteInterface from './interfaces/ICommandExecute'
 
 export default class Command implements CommandInterface {
     name: string
-    info: CommandInfoInterface
+    info: ICommandInfo
     execute: CommandExecuteInterface
     constructor(
         name: string,
         execute: CommandExecuteInterface,
-        info: CommandInfoInterface
+        info: ICommandInfo
     ) {
         this.name = name
         this.info = info

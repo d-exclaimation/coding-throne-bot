@@ -1,9 +1,9 @@
 /**
  * author: rbrtbrnschn
  */
-import ConfigComponentFunctionalityInterface from './ICommandFunctionality'
+import IComponentFunctionality from './ICommandFunctionality'
 
-export default interface ConfigComponentInterface {
+export default interface IComponent {
     name: String | undefined
-    functionality: ConfigComponentFunctionalityInterface
+    functionality: IComponentFunctionality
 }

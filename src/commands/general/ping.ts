@@ -16,7 +16,7 @@ const pingCommand = new CommandBuilder()
     .withFunctionality((message: CommandMessage) => {
         console.log('Executed command:', pingCommand.name)
         message.reply('🏓 Pong...')
-    })
+    }).build()
 
 @Discord(pingCommand.info.prefix)
 export default abstract class PingCommand {

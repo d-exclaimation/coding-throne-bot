@@ -22,7 +22,7 @@ export default class Config {
     injectComponent(_component: ConfigComponent) {
         const { _ } = this
         const { name, functionality } = _component
-        const _name = name.toString() // due to typing mismatches String != string // TODO please fix if you know how
+        const _name = (name as string).toString() // due to typing mismatches String != string // TODO please fix if you know how
 
         if (!_[_name]) {
             _[_name] = {}
@@ -50,14 +50,14 @@ export default class Config {
     getComponents() {
         const componentDirectory = fs.readdirSync(this.componentDirectoryPath)
 
-        let components = []
+        let components: ConfigComponent[] = []
         for (let file of componentDirectory) {
             const filePath = path.join(this.componentDirectoryPath, file)
             const isFile = filePath.endsWith('.ts')
 
             if (!isFile) continue
 
-            const component = require(filePath).default
+            let component = require(filePath).default as ConfigComponent;
 
             components.push(component)
         }
