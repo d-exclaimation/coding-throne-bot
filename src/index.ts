@@ -1,24 +1,57 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
 import * as path from 'path'
-import { Client } from '@typeit/discord'
+import {
+    AkairoClient,
+    CommandHandler,
+    InhibitorHandler,
+    ListenerHandler,
+} from 'discord-akairo'
+import config from './config'
 
-async function make() {
-    const client = new Client({
-        classes: [
-            path.join(__dirname, 'eventHandlers', '*.ts'),
-            path.join(__dirname, 'eventHandlers', '*.js'),
-            path.join(__dirname, 'commands', '*', '*.ts'),
-            path.join(__dirname, 'commands', '*', '*.ts'),
-            path.join(__dirname, 'commands', '*', '*.js'),
-            path.join(__dirname, 'commands', '*', '*.js'),
-        ],
-        silent: false,
-        variablesChar: ':',
-    })
+class MyClient extends AkairoClient {
+    commandHandler: CommandHandler
+    inhibitorHandler: InhibitorHandler
+    listenerHandler: ListenerHandler
+    constructor() {
+        super(
+            {
+                // Options for Akairo go here.
+            },
+            {
+                // Options for discord.js goes here.
+            }
+        )
+        // Init
+        this.commandHandler = new CommandHandler(this, {
+            directory: path.join(__dirname, 'commands'),
+            prefix: config.bot.prefix,
+            // Options for the command handler goes here.
+        })
+        this.inhibitorHandler = new InhibitorHandler(this, {
+            directory: path.join(__dirname, './inhibitors/'),
+        })
+        this.listenerHandler = new ListenerHandler(this, {
+            directory: path.join(__dirname, './eventHandlers/'),
+        })
 
-    await client.login(process.env.DISCORD_BOT_TOKEN as string)
-    return client
+        // Use
+        this.commandHandler.useInhibitorHandler(this.inhibitorHandler)
+        this.commandHandler.useListenerHandler(this.listenerHandler)
+        this.listenerHandler.setEmitters({
+            commandHandler: this.commandHandler,
+            inhibitorHandler: this.inhibitorHandler,
+            listenerHandler: this.listenerHandler,
+        })
+
+        // Load
+        this.inhibitorHandler.loadAll()
+        this.listenerHandler.loadAll()
+        this.commandHandler.loadAll()
+    }
 }
 
-export default make()
+const client = new MyClient()
+client.login(process.env.DISCORD_BOT_TOKEN)
+
+export default client
