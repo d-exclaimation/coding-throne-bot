@@ -1,0 +1,11 @@
+version: '3'
+services:
+    bot:
+        container_name: 'Bot'
+        build: ./
+        # tty: true
+        # # stdin_open: true
+        restart: always
+        environment:
+            - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+            - NODE_ENV=${NODE_ENV}
