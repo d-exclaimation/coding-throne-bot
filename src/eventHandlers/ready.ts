@@ -1,16 +1,16 @@
-import { Listener } from 'discord-akairo';
+import { Listener } from "discord-akairo"
 
 class ReadyListener extends Listener {
     constructor() {
-        super('ready', {
-            emitter: 'client',
-            event: 'ready'
-        });
+        super("ready", {
+            emitter: "client",
+            event: "ready",
+        })
     }
 
     exec() {
-        console.log('I\'m ready!');
+        console.log("I'm ready!")
     }
 }
 
-module.exports = ReadyListener;
+export default ReadyListener

@@ -1,15 +1,14 @@
-import { Command } from 'discord-akairo';
-import { Message} from "discord.js";
-class PingCommand extends Command {
+import { Command } from "discord-akairo"
+import { Message } from "discord.js"
+
+export default class PingCommand extends Command {
     constructor() {
-        super('ping', {
-           aliases: ['ping'] 
-        });
+        super("ping", {
+            aliases: ["ping"],
+        })
     }
 
     exec(message: Message) {
-        return message.reply("🏓 Pong...");
+        return message.reply("🏓 Pong...")
     }
 }
-
-module.exports = PingCommand;

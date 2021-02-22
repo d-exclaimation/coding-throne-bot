@@ -1,6 +1,6 @@
-import CommandInterface from './interfaces/ICommand'
-import ICommandInfo from './interfaces/ICommandInfo'
-import CommandExecuteInterface from './interfaces/ICommandExecute'
+import CommandInterface from "./interfaces/ICommand"
+import ICommandInfo from "./interfaces/ICommandInfo"
+import CommandExecuteInterface from "./interfaces/ICommandExecute"
 
 export default class Command implements CommandInterface {
     name: string

@@ -1,13 +1,14 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
-import * as path from 'path'
+import * as dotenv from "dotenv"
+import * as path from "path"
 import {
     AkairoClient,
     CommandHandler,
     InhibitorHandler,
     ListenerHandler,
-} from 'discord-akairo'
-import config from './config'
+} from "discord-akairo"
+import config from "./config"
+
+dotenv.config()
 
 class MyClient extends AkairoClient {
     commandHandler: CommandHandler
@@ -22,17 +23,20 @@ class MyClient extends AkairoClient {
                 // Options for discord.js goes here.
             }
         )
+
         // Init
         this.commandHandler = new CommandHandler(this, {
-            directory: path.join(__dirname, 'commands'),
+            directory: path.join(__dirname, "commands"),
             prefix: config.bot.prefix,
             // Options for the command handler goes here.
         })
+
         this.inhibitorHandler = new InhibitorHandler(this, {
-            directory: path.join(__dirname, './inhibitors/'),
+            directory: path.join(__dirname, "./inhibitors/"),
         })
+
         this.listenerHandler = new ListenerHandler(this, {
-            directory: path.join(__dirname, './eventHandlers/'),
+            directory: path.join(__dirname, "./eventHandlers/"),
         })
 
         // Use
@@ -52,6 +56,8 @@ class MyClient extends AkairoClient {
 }
 
 const client = new MyClient()
-client.login(process.env.DISCORD_BOT_TOKEN)
+;(async () => {
+    await client.login(process.env.DISCORD_BOT_TOKEN)
+})()
 
 export default client

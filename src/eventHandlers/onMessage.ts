@@ -1,14 +1,15 @@
-import { On, Client, ArgsOf } from '@typeit/discord'
-import { Message } from 'discord.js'
+import { On, Client, ArgsOf } from "@typeit/discord"
 
 export default abstract class OnMessage {
-    @On('message')
+    @On("message")
     static onMessage(
-        [message]: ArgsOf<'message'>,
+        [message]: ArgsOf<"message">,
         client: Client,
         guardPayload: any
     ) {
-        if(message.author.bot) return;
-        console.log(`[Message received] ${message.author.username} says: "${message.content}"`)
+        if (message.author.bot) return
+        console.log(
+            `[Message received] ${message.author.username} says: "${message.content}"`
+        )
     }
 }
