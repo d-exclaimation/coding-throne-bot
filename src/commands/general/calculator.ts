@@ -22,13 +22,13 @@ export default class CalculatorCommand extends Command {
                 return val.toUpperCase() === val.toLowerCase()
             }).length
 
-        // Exit early if does not contains number
-        if (!hasNum)
+        // Exit early if contain anything but number and symbol
+        if (hasNum !== args.length)
             return
 
         ;(async () => {
             try {
-                const res = eval(args.join("")) as number
+                const res = parseFloat(eval(args.join("")));
                 await message.channel.send(`Result is: ${res}`)
             } catch (err) {
                 console.log("Can't do")

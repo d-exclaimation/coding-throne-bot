@@ -16,6 +16,9 @@ export default class MessageListener extends Listener {
 
     exec(message: Message) {
         if (message.author.bot) return
+
+        // Todo:
+        //  - Should probably be changed to something else, as this is not really needed
         console.log(
             `[Message received] ${message.author.username} says: "${message.content}"`
         )
