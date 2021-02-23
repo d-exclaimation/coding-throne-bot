@@ -1,4 +1,4 @@
-import Prefixes from './Prefixes'
+import Prefixes from "./Prefixes"
 // Singleton
 class PrefixHandler {
     prefixes: Map<string, string>

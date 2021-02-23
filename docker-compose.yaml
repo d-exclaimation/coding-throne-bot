@@ -1,7 +1,7 @@
-version: '3'
+version: "3"
 services:
     bot:
-        container_name: 'Bot'
+        container_name: "Bot"
         build: ./
         # tty: true
         # # stdin_open: true

@@ -1,14 +1,12 @@
-import Command from './Command'
-import ICommandExecute from './interfaces/ICommandExecute'
-import ICommandInfo from './interfaces/ICommandInfo'
+import Command from "./Command"
+import ICommandExecute from "./interfaces/ICommandExecute"
+import ICommandInfo from "./interfaces/ICommandInfo"
 
 export default class CommandBuilder {
-    name: string | undefined;
-    info: ICommandInfo | undefined;
-    execute: ICommandExecute | undefined;
-    constructor(){
-
-    }
+    name: string | undefined
+    info: ICommandInfo | undefined
+    execute: ICommandExecute | undefined
+    constructor() {}
     withName(name: string) {
         this.name = name
         return this
@@ -22,6 +20,10 @@ export default class CommandBuilder {
         return this
     }
     build() {
-        return new Command(this.name as string, this.execute as ICommandExecute, this.info as ICommandInfo)
+        return new Command(
+            this.name as string,
+            this.execute as ICommandExecute,
+            this.info as ICommandInfo
+        )
     }
 }

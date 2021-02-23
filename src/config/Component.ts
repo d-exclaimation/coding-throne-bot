@@ -1,16 +1,17 @@
 /**
  * author: rbrtbrnschn
  */
-import { Record, Static } from 'runtypes'
-import IComponentFunctionality from './interfaces/ICommandFunctionality'
-import IComponent from './interfaces/IComponent'
-import ComponentTypes from './interfaces/ITypes'
+import { Record, Static } from "runtypes"
+import IComponentFunctionality from "./interfaces/ICommandFunctionality"
+import IComponent from "./interfaces/IComponent"
+import ComponentTypes from "./interfaces/ITypes"
 
-type Name = String | undefined
+type Name = string | undefined
+
 export default class ConfigComponent implements IComponent {
     functionality: IComponentFunctionality
     name: Name
-    types: ComponentTypes;
+    types: ComponentTypes
 
     withName<T extends Name>(_name: T) {
         this.name = _name

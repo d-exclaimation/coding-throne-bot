@@ -1,42 +1,43 @@
 /**
  * author: rbrtbrnschn
  */
-import ConfigComponent from './Component'
-import ConfigInterface from './interfaces/IConfig'
-import * as fs from 'fs'
-import * as path from 'path'
+import ConfigComponent from "./Component"
+import ConfigInterface from "./interfaces/IConfig"
+import * as fs from "fs"
+import * as path from "path"
 
 export default class Config {
     componentDirectoryPath: string
     _: ConfigInterface
     constructor() {
-        this.componentDirectoryPath = path.join(__dirname, 'components')
+        this.componentDirectoryPath = path.join(__dirname, "components")
         this._ = {} as ConfigInterface
     }
 
     /**
      * Injects a {@link ConfigComponent} into the config.
-     * @param {ConfigComponent} _component - any component
-     * @returns {Config}
      */
-    injectComponent(_component: ConfigComponent) {
+    injectComponent(_component: ConfigComponent): ConfigInterface {
         const { _ } = this
         const { name, functionality } = _component
-        const _name = (name as string).toString() // due to typing mismatches String != string // TODO please fix if you know how
+        // const _name = name
 
-        if (!_[_name]) {
-            _[_name] = {}
+        // NOTE: name could be undefined if so, it should not proceed and adding into the records
+        // unless this is intentional
+        if (!name) return this._
+
+        if (!_[name]) {
+            _[name] = {}
         }
 
-        _[_name] = functionality
+        _[name] = functionality
         return this._
     }
 
     /**
      * Injects each {@link ConfigComponent} in the given array.
-     * @param {ConfigComponent[]} _components
      */
-    injectComponents(_components: ConfigComponent[]) {
+    injectComponents(_components: ConfigComponent[]): ConfigInterface {
         for (let component of _components) {
             this.injectComponent(component)
         }
@@ -45,19 +46,18 @@ export default class Config {
 
     /**
      * Reads components root directory for top level components.
-     * @returns {ConfigComponent[]}
      */
-    getComponents() {
+    getComponents(): ConfigComponent[] {
         const componentDirectory = fs.readdirSync(this.componentDirectoryPath)
 
         let components: ConfigComponent[] = []
         for (let file of componentDirectory) {
             const filePath = path.join(this.componentDirectoryPath, file)
-            const isFile = filePath.endsWith('.ts')
+            const isFile = filePath.endsWith(".ts")
 
             if (!isFile) continue
 
-            let component = require(filePath).default as ConfigComponent;
+            let component = require(filePath).default as ConfigComponent
 
             components.push(component)
         }

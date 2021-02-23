@@ -1,2 +1,2 @@
-type ComponentTypes = any;
-export default ComponentTypes;
+type ComponentTypes = any
+export default ComponentTypes
