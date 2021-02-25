@@ -1,56 +1,46 @@
-//
-//  kick.ts.ts
-//  coding-throne-bot
-//
-//
-
 import { Command } from "discord-akairo"
-import { Message } from "discord.js"
+import { Message, GuildMember } from "discord.js"
 
 export default class KickCommand extends Command {
     constructor() {
         super("kick", {
             aliases: ["kick"],
+            category: "Moderation",
+            args: [
+                {
+                    id: "member",
+                    type: "member",
+                    prompt: {
+                        start: (msg: Message) =>
+                            `${msg.author} please provide a member to kick!`,
+                        retry: (msg: Message) =>
+                            `${msg.author} that is not a valid member to kick1`,
+                    },
+                },
+                {
+                    id: "reason",
+                    default: "No Reason Provided",
+                    match: "rest",
+                },
+            ],
+            clientPermissions: ["KICK_MEMBERS"],
+            userPermissions: ["KICK_MEMBERS"],
         })
     }
-    exec(message: Message) {
-        const args = message.content.split(" ").slice(1);
-        const member =
-            message.mentions.members?.first() ||
-            message.guild?.members.cache.get(args[0])
-        ;(async () => {
+    exec(
+        message: Message,
+        { member, reason }: { member: GuildMember; reason: string }
+    ) {
+        if (!member.kickable)
+            return message.channel.send(":x: That member is not kickable")
 
-            if (!member || !args[0]) {
-                await message.channel.send("Please provide a member to kick")
-                return
-            }
-
-            if (!message.member || !message.member.hasPermission("KICK_MEMBERS")) {
-                await message.channel.send("You can't use that!")
-                return
-            }
-
-            if (member.kickable) {
-                await message.channel.send("That member is not kickable")
-                return
-            }
-
-            let reason = args.slice(1).join(" ")
-
-            if (!reason)
-                reason = "Unspecified"
-
-            member.kick(reason).catch(async (err) => {
-                if (err) {
-                    await message.channel.send("Something went wrong")
-                    return
-                }
-            })
-            await message.channel.send(
-                `**${member.user.username}** was kicked by **${message.author.username}** for **${reason}**`,
+        try {
+            member.kick()
+            message.channel.send(
+                `**${member.user.tag}** was kicked by **${message.author.tag}** for **${reason}**`
             )
-        })()
+        } catch (err) {
+            message.channel.send(`Error: ${err}`)
+        }
     }
 }
-
-
