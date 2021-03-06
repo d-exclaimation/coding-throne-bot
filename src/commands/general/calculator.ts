@@ -5,6 +5,7 @@
 
 import { Command } from "discord-akairo"
 import { Message } from "discord.js"
+import { splitWords, infixToPostfix, evaluatePostfix} from "../../helper/calculatorHelper"
 
 export default class CalculatorCommand extends Command {
     constructor() {
@@ -16,21 +17,14 @@ export default class CalculatorCommand extends Command {
     exec(message: Message): void {
         const args = message.content
             .split(" ")
-            .slice(1)
-        // This is a calculator so, I don't want Javascript code to be run here
-        const hasNum = args.filter(val => {
-                return val.toUpperCase() === val.toLowerCase()
-            }).length
-
-        // Exit early if contain anything but number and symbol
-        if (hasNum !== args.length)
-            return
-
+            .slice(1, message.content.length)
+            .join(" ")
         ;(async () => {
-            try {
-                const res = parseFloat(eval(args.join("")));
+            const postfixes = infixToPostfix(splitWords(args))
+            const res = evaluatePostfix(postfixes)
+            if (res) {
                 await message.channel.send(`Result is: ${res}`)
-            } catch (err) {
+            } else {
                 console.log("Can't do")
                 await message.reply("Can't do")
             }
